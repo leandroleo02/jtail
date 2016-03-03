@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONStringer;
 import org.json.JSONWriter;
 
@@ -23,7 +24,9 @@ import br.jtail.model.FileConf;
  */
 public class ServletHome extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    
+    final static Logger logger = Logger.getLogger(ServletHome.class);
+    
     /**
      * Default constructor.
      */
@@ -54,6 +57,7 @@ public class ServletHome extends HttpServlet {
 	    out.print(jsonResult);
 	    out.flush();
 	} catch (Exception e) {
+		logger.error(e);
 	    ErrorHandler.execute(response, e);
 	}
 

@@ -100,7 +100,14 @@ function HomeController($scope, $window, $http, $log){
 
 
 	var init = function(){
-		$http.get('home?action=get-files').success(function(data){
+		
+		var config = {
+            params: {
+            	action: 'get-files'
+            }
+        };
+		
+		$http.get('home?action=get-files', config).success(function(data){
 			$scope.files = data;
 		});
 	};

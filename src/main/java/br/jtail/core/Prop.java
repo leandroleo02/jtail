@@ -42,7 +42,7 @@ public class Prop {
 	InputStream input = null;
 
 	try {
-	    input = cl.getResourceAsStream("conf.properties");
+	    input = cl.getResourceAsStream("/conf.properties");
 	    properties = new Properties();
 	    properties.load(input);
 
